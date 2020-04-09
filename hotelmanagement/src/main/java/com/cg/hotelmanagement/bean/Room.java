@@ -13,6 +13,14 @@ public class Room {
 	private Customer customer;
 	private List<Booking> bookingDetails;
 
+	public List<Booking> getBookingDetails() {
+		return bookingDetails;
+	}
+
+	public void setBookingDetails(List<Booking> bookingDetails) {
+		this.bookingDetails = bookingDetails;
+	}
+
 	public long getRoomid() {
 		return roomid;
 	}
