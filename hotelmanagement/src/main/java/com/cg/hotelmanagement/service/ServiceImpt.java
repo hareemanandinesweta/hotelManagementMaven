@@ -24,18 +24,18 @@ public class ServiceImpt implements ServiceInteface {
 
 		if (C.getCustomerUsername().equals(id) && CustMap.containsValue(pass)) {
 
-			System.out.println("Welcome " + C.getCustomerUsername());
+			
 			userEntered = true;
 
 		}
 		try {
 			if (!C.getCustomerUsername().equals(id) && CustMap.containsValue(pass)) {
-
+				userEntered = false;
 				throw new HotelManagementException("Wrong Input");
 			}
 
 		} catch (Exception e) {
-
+			System.out.println(e);
 		}
 
 		return userEntered;

@@ -1,7 +1,7 @@
 package com.cg.hotelmanagement.presentation;
 
 
-import java.sql.*;
+import java.sql.*; 
 import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
@@ -52,18 +52,12 @@ public class MainInterface {
 //		ArrayList<City> cityList = new ArrayList<>();
 //		
 //		
-//		cityList.add(new City("11", "Bangalore", HotelDAOImpl.hotelList));
-//		cityList.add(new City("12", "Delhi",HotelDAOImpl.hotelList2));
-//		cityList.add(new City("13", "Pune", HotelDAOImpl.hotelList3));
-//		cityList.add(new City("14", "Chennai", HotelDAOImpl.hotelList4));
-//		cityList.add(new City("15", "Hyderabad", HotelDAOImpl.hotelList5));
-//		cityList.add(new City("16", "Chandigarh", HotelDAOImpl.hotelList2));
-//		cityList.add(new City("17", "Mumbai", HotelDAOImpl.hotelList4));
+//	
 //		
 		cityDAO.hardcodedvalues();
 		roomDAO.hardcodedValues();
 		hotelDAO.hardCodedValues();
-		
+		customerDao.hardCodedValues();
 		// System.out.println(wholeRoomList);
 
 		System.out.println(CityDAOImpl.cityList);
@@ -74,8 +68,7 @@ public class MainInterface {
 
 		if (user) {
 			while (true) {
-
-				customerDao.hardCodedValues();
+				
 
 				System.out.println("Enter you ID");
 				id = scr.next();
@@ -83,15 +76,14 @@ public class MainInterface {
 				System.out.println("Enter your password");
 				String pass = scr.next();
 				for (Customer cs : CustomerDAOImpl.custList) {
-					if (cs.getCustomerUsername().equalsIgnoreCase(id)) {
-						loggedin = serv.logIn(cs, id, CustomerDAOImpl.CustMap, pass);
-						break;
-
-					}
-				}
-
+					
+					loggedin = serv.logIn(cs, id, CustomerDAOImpl.CustMap, pass); 
+					break;
+					
+			}
+				System.out.println(CustomerDAOImpl.custList);
 				if (loggedin) {
-					while (true) {
+				while (true) {     
 						System.out.println(
 								"Select an option:\n 1.Show your profile\n 2.Search hotel on the basis of City: \n 3.Book a room.\n 4.CheckAvailabilty\n 5.Cancel Booked room?\n 6.Check Out?");
 						int opt = scr.nextInt();
@@ -104,6 +96,7 @@ public class MainInterface {
 									System.out.println("--------------YOUR PROFILE---------------");
 									Customer cs = serv.custProfileDetails(cst);
 									System.out.println("Name: " +cs.getCustomerFirstName()+ " " +cs.getCustomerLastName() +"\nEmail ID: "+cs.getCustomerEmailId() +"\nPhone Number: "+cs.getCustomerPhoneNo()+"\nAddress: "+cs.getCustomerAddress()+"\nUserName: "+cs.getCustomerUsername() );
+									
 									break;
 								case 2:
 									System.out.println("--------------CITIES---------------");
@@ -216,11 +209,10 @@ public class MainInterface {
 									System.out.println(bookedList);
 
 								}
-
 							}
 						}
 
-					}
+					}  
 					// ----------------------------------------------------------------------------------------------
 				} else {
 					System.out.println("Invalid password or username!!");
