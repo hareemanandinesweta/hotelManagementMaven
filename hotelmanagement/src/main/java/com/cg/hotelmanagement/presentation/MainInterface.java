@@ -12,6 +12,7 @@ import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.bean.Customer;
 import com.cg.hotelmanagement.bean.Hotel;
 import com.cg.hotelmanagement.bean.Room;
+import com.cg.hotelmanagement.dao.CityDAOImpl;
 import com.cg.hotelmanagement.dao.CustomerDAOImpl;
 import com.cg.hotelmanagement.dao.HotelDAOImpl;
 import com.cg.hotelmanagement.dao.RoomDAOImpl;
@@ -37,37 +38,35 @@ public class MainInterface {
 		
 		
 		boolean loggedin = false;
-		int count = 0;
-		boolean userEntered = false;
+		//int count = 0;
+		//boolean userEntered = false;
 		String id;
 		RoomDAOImpl roomDAO = new RoomDAOImpl();
 		HotelDAOImpl hotelDAO = new HotelDAOImpl();
 		CustomerDAOImpl customerDao = new CustomerDAOImpl();
-
+		CityDAOImpl cityDAO = new CityDAOImpl();
 		ServiceImpt serv = new ServiceImpt();
 		Scanner scr = new Scanner(System.in);
 
 
-		ArrayList<City> cityList = new ArrayList<>();
-		ArrayList<ArrayList<Room>> wholeRoomList = new ArrayList<>();
-		// ArrayList<Customer> CustomerList = new ArrayList<>();
-		ArrayList<Admin> adminList = new ArrayList<>();
-		ArrayList<ArrayList<Hotel>> allHotelList = new ArrayList<>();
-		
-		cityList.add(new City("11", "Bangalore", HotelDAOImpl.hotelList));
-		cityList.add(new City("12", "Delhi",HotelDAOImpl.hotelList2));
-		cityList.add(new City("13", "Pune", HotelDAOImpl.hotelList3));
-		cityList.add(new City("14", "Chennai", HotelDAOImpl.hotelList4));
-		cityList.add(new City("15", "Hyderabad", HotelDAOImpl.hotelList5));
-		cityList.add(new City("16", "Chandigarh", HotelDAOImpl.hotelList2));
-		cityList.add(new City("17", "Mumbai", HotelDAOImpl.hotelList4));
-
+//		ArrayList<City> cityList = new ArrayList<>();
+//		
+//		
+//		cityList.add(new City("11", "Bangalore", HotelDAOImpl.hotelList));
+//		cityList.add(new City("12", "Delhi",HotelDAOImpl.hotelList2));
+//		cityList.add(new City("13", "Pune", HotelDAOImpl.hotelList3));
+//		cityList.add(new City("14", "Chennai", HotelDAOImpl.hotelList4));
+//		cityList.add(new City("15", "Hyderabad", HotelDAOImpl.hotelList5));
+//		cityList.add(new City("16", "Chandigarh", HotelDAOImpl.hotelList2));
+//		cityList.add(new City("17", "Mumbai", HotelDAOImpl.hotelList4));
+//		
+		cityDAO.hardcodedvalues();
 		roomDAO.hardcodedValues();
 		hotelDAO.hardCodedValues();
 		
 		// System.out.println(wholeRoomList);
 
-		System.out.println(cityList);
+		System.out.println(CityDAOImpl.cityList);
 		System.out.println("Log in as: \n1.Customer \n2.Admin");
 		int option = scr.nextInt();
 
@@ -108,24 +107,24 @@ public class MainInterface {
 									break;
 								case 2:
 									System.out.println("--------------CITIES---------------");
-									for(City c :cityList) {
+									for(City c :CityDAOImpl.cityList) {
 										System.out.println(" "+c.getCityName());
 									}
 									System.out.println("Enter city name: ");
 									String cityName = scr.next();
 									
-									serv.getHotelListFromCity(cityList, cityName);
+									serv.getHotelListFromCity(CityDAOImpl.cityList, cityName);
 									break;
 
 								case 3:
 									System.out.println("--------------HOTEL LIST-----------------");
-									serv.viewHotelList(cityList);
+									serv.viewHotelList(CityDAOImpl.cityList);
 								
 									System.out.println("Enter city name: ");
 									String SearchcityName = scr.next();
 									
 									System.out.println("------------These are the hotels in " +SearchcityName + "------------");
-									ArrayList<Hotel> hotlist = serv.getHotelListFromCity(cityList, SearchcityName);
+									ArrayList<Hotel> hotlist = serv.getHotelListFromCity(CityDAOImpl.cityList, SearchcityName);
 									for(Hotel h: hotlist) {
 										System.out.println("~"+h.getHotelName());
 									}
@@ -165,13 +164,13 @@ public class MainInterface {
 
 								case 4:
 									System.out.println("--------------Check Availability-----------------");
-									serv.viewHotelList(cityList);
+									serv.viewHotelList(CityDAOImpl.cityList);
 								
 									System.out.println("Enter city name: ");
 									String SearchcityName2 = scr.next();
 									
 									System.out.println("------------These are the hotels in " +SearchcityName2 + "------------");
-									ArrayList<Hotel> hotlist2 = serv.getHotelListFromCity(cityList, SearchcityName2);
+									ArrayList<Hotel> hotlist2 = serv.getHotelListFromCity(CityDAOImpl.cityList, SearchcityName2);
 									for(Hotel h: hotlist2) {
 										System.out.println("~"+h.getHotelName());
 									}
@@ -213,7 +212,7 @@ public class MainInterface {
 									System.out.println("--------------My bookings--------------");
 									System.out.println("You have bookings for these hotels: ");
 									 
-									ArrayList<Hotel> bookedList = serv.myBooking(cityList);
+									ArrayList<Hotel> bookedList = serv.myBooking(CityDAOImpl.cityList);
 									System.out.println(bookedList);
 
 								}

@@ -228,3 +228,15 @@
 [FATAL] 2020-04-12 01:08:41.406 [main] MainInterface - This is a fatal msg
 [WARN ] 2020-04-12 01:08:41.407 [main] MainInterface - This is a warn msg
 [ERROR] 2020-04-12 01:08:41.407 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-12 13:32:51.720 [main] MainInterface - This is an info msg
+[INFO ] 2020-04-12 13:32:51.720 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-12 13:32:51.745 [main] MainInterface - This is a fatal msg
+[FATAL] 2020-04-12 13:32:51.745 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-12 13:32:51.746 [main] MainInterface - This is a warn msg
+[WARN ] 2020-04-12 13:32:51.746 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-12 13:32:51.746 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-12 13:32:51.746 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-12 13:33:34.253 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-12 13:33:34.255 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-12 13:33:34.255 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-12 13:33:34.255 [main] MainInterface - This is a error msg
