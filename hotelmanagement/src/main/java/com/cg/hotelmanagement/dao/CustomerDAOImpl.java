@@ -3,14 +3,19 @@ package com.cg.hotelmanagement.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.cg.hotelmanagement.bean.Customer;
 
 public class CustomerDAOImpl implements CustomerDAO{
+	Logger logger = LogManager.getLogger(CustomerDAOImpl.class);
 	public static HashMap<Customer, String> CustMap = new HashMap<>(); // String is password here.
 	public static ArrayList<Customer> custList = new ArrayList<>();
 	public void signIn(Customer cust) {
 
 		custList.add(cust);
+		logger.info("Customer added");
 		System.out.println(custList);
 		
 	}

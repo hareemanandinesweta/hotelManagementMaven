@@ -9,6 +9,7 @@ import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.bean.Customer;
 import com.cg.hotelmanagement.bean.Hotel;
 import com.cg.hotelmanagement.bean.Room;
+import com.cg.hotelmanagement.dao.HotelDAOImpl;
 import com.cg.hotelmanagement.exceptions.HotelManagementException;
 
 public class ServiceImpt implements ServiceInteface {
@@ -18,23 +19,23 @@ public class ServiceImpt implements ServiceInteface {
 	public boolean adminEntered;
 
 	@Override
-	public boolean logIn(Customer C, String id, HashMap<Customer, String> CustMap, String pass) throws HotelManagementException {
+	public boolean logIn(Customer C, String id, HashMap<Customer, String> CustMap, String pass)
+			throws HotelManagementException {
 
 		if (C.getCustomerUsername().equals(id) && CustMap.containsValue(pass)) {
 
 			System.out.println("Welcome " + C.getCustomerUsername());
 			userEntered = true;
-			
+
 		}
 		try {
-			if (!C.getCustomerUsername().equals(id) && CustMap.containsValue(pass))  {
-				
+			if (!C.getCustomerUsername().equals(id) && CustMap.containsValue(pass)) {
+
 				throw new HotelManagementException("Wrong Input");
 			}
-			
-		}
-		catch(Exception e) {
-			
+
+		} catch (Exception e) {
+
 		}
 
 		return userEntered;
@@ -63,12 +64,12 @@ public class ServiceImpt implements ServiceInteface {
 	 * System.out.println("Welcome Anand"); userEntered = true; break;
 	 */
 
-//	@Override
-//	public void SignIn(Customer cust, ArrayList<Customer> list) {
-//
-//		list.add(cust);
-//
-//	}
+	// @Override
+	// public void SignIn(Customer cust, ArrayList<Customer> list) {
+	//
+	// list.add(cust);
+	//
+	// }
 
 	@Override
 	public boolean ChooseInitialOption(int opt) {
@@ -99,11 +100,16 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void viewHotelList(ArrayList<Hotel> hotelList) {
+	public void viewHotelList(ArrayList<City> cityHotelList) {
 		// TODO Auto-generated method stub
-		for (Hotel hots : hotelList) {
+		for (City c : cityHotelList) {
+			System.out.println("\n---------------------------");
+			System.out.println("City: " + c.getCityName());
+			System.out.println("---------------------------");
+			for (Hotel h : c.getHotelList()) {
 
-			System.out.println(hots.getHotelName() + "\n");
+				System.out.println(h.getHotelName());
+			}
 
 		}
 
@@ -123,10 +129,11 @@ public class ServiceImpt implements ServiceInteface {
 					roomList.get(i).setIsbooked(true);
 					roomList.get(i).setCustomer(cust);
 					roomList.get(i).setCustomer(cust);
-//					cost += roomList.get(i).getRoomcost();
-//					customer1.setBillAmount(cost);
+					// cost += roomList.get(i).getRoomcost();
+					// customer1.setBillAmount(cost);
 					numBookRoomCount--;
 					System.out.println("Room allocated successfully and room id is:" + roomList.get(i).getRoomid());
+
 				}
 
 			}
@@ -150,6 +157,25 @@ public class ServiceImpt implements ServiceInteface {
 		}
 	}
 
+	public ArrayList<Hotel> myBooking(ArrayList<City> cityList) {
+		ArrayList<Hotel> bookingList = new ArrayList<>();
+		//String noBooking;
+		for (City c : cityList) {
+			for (Hotel h : c.getHotelList()) {
+				for (Room r : h.getRoomList()) {
+					if (r.isIsbooked()) {
+						//bookingList = h.getHotelName() + "-" + r.getRoomid();
+						HotelDAOImpl.bookedHotels.add(h);
+						
+					} else {
+					//	bookingList = "No Booked rooms yet.";
+					}
+				}
+			}
+		}
+		return bookingList;
+	}
+
 	@Override
 	public void formFill() {
 		// TODO Auto-generated method stub
@@ -163,29 +189,29 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void cancelRoom(ArrayList<Room> roomList, Customer cst) {
-		System.out.println("In cancel room.....");
-
+	public String cancelRoom(ArrayList<Room> roomList, Customer cst) {
+		String cancelled = "";
 		ArrayList<Long> roomsIdList = (ArrayList<Long>) roomList.stream().filter(r -> r.isIsbooked())
-				.filter(r -> r.getCustomer().getCustomerUsername().equalsIgnoreCase(cst.getCustomerUsername())).map(r -> r.getRoomid())
-				.collect(Collectors.toList());
+				.filter(r -> r.getCustomer().getCustomerUsername().equalsIgnoreCase(cst.getCustomerUsername()))
+				.map(r -> r.getRoomid()).collect(Collectors.toList());
 		if (roomsIdList.isEmpty()) {
-			System.out.println("No room is booked yet!");
+			return "No room is booked yet!";
 		}
-		if (!roomsIdList.isEmpty()) {
-			System.out.println("You have following booked rooms: " + roomsIdList);
-		}
-		for (Long roomNo : roomsIdList) {
-			for (Room r : roomList) {
-				if (r.getRoomid() == roomNo) {
-					r.setIsbooked(false);
-					r.setCustomer(null);
-					System.out.println("------------------------------------------------------------------------\n");
-					System.out.println("Room Booking cancelled!");
-					System.out.println("------------------------------------------------------------------------\n");
+
+		else if (!roomsIdList.isEmpty()) {
+			// return "You have following booked rooms: " + roomsIdList;
+			for (Long roomNo : roomsIdList) {
+				for (Room r : roomList) {
+					if (r.getRoomid() == roomNo) {
+						r.setIsbooked(false);
+						r.setCustomer(null);
+
+					}
 				}
 			}
+			cancelled = "You have cancelled the following booked rooms" + roomsIdList;
 		}
+		return cancelled;
 	}
 
 	@Override
@@ -227,21 +253,19 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void searchHotel(ArrayList<City> cityList, String cityName) {
-
+	public ArrayList<Hotel> getHotelListFromCity(ArrayList<City> cityList, String cityName) {
+		ArrayList<Hotel> hotlist = new ArrayList<>();
 		for (City c : cityList) {
 			if (cityName.equalsIgnoreCase(c.getCityName())) {
-				System.out.println("------------These are the hotels in " + c.getCityName() + "------------");
+
 				for (Hotel h : c.getHotelList()) {
 
-					System.out.println(h.getHotelName());
+					hotlist.add(h);
 				}
 			}
-			// if().equalsIgnoreCase(cityName))
-			{
 
-			}
 		}
+		return hotlist;
 	}
 
 }

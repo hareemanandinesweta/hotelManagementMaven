@@ -25,6 +25,12 @@ public class RoomDAOImpl {
 	public static ArrayList<Room> roomList = new ArrayList<>();
 	public static ArrayList<Room> roomList2 = new ArrayList<>();
 	public static ArrayList<Room> roomList3 = new ArrayList<>();
+	public static ArrayList<Room> roomList4 = new ArrayList<>();
+	public static ArrayList<Room> roomList5 = new ArrayList<>();
+	public static ArrayList<Room> roomList6 = new ArrayList<>();
+	public static ArrayList<Room> roomList7= new ArrayList<>();
+	public static ArrayList<Room> roomList8 = new ArrayList<>();
+	public static ArrayList<Room> roomList9 = new ArrayList<>();
 	
 	public void hardcodedValues() {
 	roomList.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
@@ -49,12 +55,65 @@ public class RoomDAOImpl {
 
 	roomList3.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
 	roomList3.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
-	roomList3.add(
-			new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList3.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
 	roomList3.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
 	roomList3.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
 	roomList3.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
 	roomList3.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
 	roomList3.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
+	
+	roomList4.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
+	roomList4.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
+	roomList4.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList4.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList4.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
+	roomList4.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
+	roomList4.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList4.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
+	
+	roomList5.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
+	roomList5.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
+	roomList5.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList5.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList5.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
+	roomList5.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
+	roomList5.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList5.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
+	
+	roomList6.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
+	roomList6.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
+	roomList6.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList6.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList6.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
+	roomList6.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
+	roomList6.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList6.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
+	
+	roomList7.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
+	roomList7.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
+	roomList7.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList7.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList7.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
+	roomList7.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
+	roomList7.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList7.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
+	
+	roomList8.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
+	roomList8.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
+	roomList8.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList8.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList8.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
+	roomList8.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
+	roomList8.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList8.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
+	
+	roomList9.add(new Room(101, ROOM_TYPE.AC.toString(), false, "swetha", null, null, ROOM_COST.AC.val, null));
+	roomList9.add(new Room(102, ROOM_TYPE.NON_AC.toString(), false, "capg", null, null, ROOM_COST.NONAC.val, null));
+	roomList9.add(new Room(103, ROOM_TYPE.NON_AC.toString(), false, "peetha", null, null, ROOM_COST.NONAC.val, null));
+	roomList9.add(new Room(104, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList9.add(new Room(105, ROOM_TYPE.NON_AC.toString(), false, "aith", null, null, ROOM_COST.NONAC.val, null));
+	roomList9.add(new Room(106, ROOM_TYPE.AC.toString(), false, "sonu", null, null, ROOM_COST.AC.val, null));
+	roomList9.add(new Room(201, ROOM_TYPE.AC.toString(), false, "capg", null, null, ROOM_COST.AC.val, null));
+	roomList9.add(new Room(202, ROOM_TYPE.AC.toString(), false, "karthik", null, null, ROOM_COST.AC.val, null));
 	}
 }

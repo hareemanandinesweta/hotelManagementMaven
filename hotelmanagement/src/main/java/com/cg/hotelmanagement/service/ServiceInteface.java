@@ -16,15 +16,15 @@ public interface ServiceInteface  {
 	public boolean logInAdmin(Admin C, String id, HashMap<Admin, String> AdMap, String pass)throws HotelManagementException;
 	//public void SignIn(Customer cust,  ArrayList<Customer> list );
 	public boolean ChooseInitialOption(int opt);
-	public void viewHotelList(ArrayList<Hotel> hotelList);
+	public void viewHotelList(ArrayList<City> cityHotelList);
 	public void custProfileDetails(Customer cust);
 	public Hotel getHotel(String hotel, ArrayList<Hotel> hotelList);
-	public void searchHotel(ArrayList<City> cityList, String cityName);
+	public ArrayList<Hotel> getHotelListFromCity(ArrayList<City> cityList, String cityName);
 	public void bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount);
 	public void checkAvailablity(ArrayList<Room> roomList, int noOfRoomsAvai );
 	public void formFill();
 	public void viewCustomers();
-	public void cancelRoom(ArrayList<Room> roomList, Customer cst);
+	public String cancelRoom(ArrayList<Room> roomList, Customer cst);
 	public void refund();
 	public void payBill();
 	public void checkOut(String custID, ArrayList<Room> roomList);
