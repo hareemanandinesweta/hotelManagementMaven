@@ -18,7 +18,6 @@ public class CustomerDAOImpl implements CustomerDAO{
 		logger.info("Customer added");
 		System.out.println(custList);
 		
-		
 	}
 	
 	
