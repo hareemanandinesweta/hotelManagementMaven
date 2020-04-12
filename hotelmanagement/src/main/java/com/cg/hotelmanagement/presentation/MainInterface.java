@@ -103,7 +103,8 @@ public class MainInterface {
 								switch (opt) {
 								case 1:
 									System.out.println("--------------YOUR PROFILE---------------");
-									serv.custProfileDetails(cst);
+									Customer cs = serv.custProfileDetails(cst);
+									System.out.println("Name: " +cs.getCustomerFirstName()+ " " +cs.getCustomerLastName() +"\nEmail ID: "+cs.getCustomerEmailId() +"\nPhone Number: "+cs.getCustomerPhoneNo()+"\nAddress: "+cs.getCustomerAddress()+"\nUserName: "+cs.getCustomerUsername() );
 									break;
 								case 2:
 									System.out.println("--------------CITIES---------------");

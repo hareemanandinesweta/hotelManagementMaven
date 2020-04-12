@@ -81,9 +81,9 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void custProfileDetails(Customer cust) {
+	public Customer custProfileDetails(Customer cust) {
 
-		System.out.println(cust);
+		return cust;
 
 	}
 

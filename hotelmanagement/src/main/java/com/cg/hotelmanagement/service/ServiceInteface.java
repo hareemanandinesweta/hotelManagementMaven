@@ -17,7 +17,7 @@ public interface ServiceInteface  {
 	//public void SignIn(Customer cust,  ArrayList<Customer> list );
 	public boolean ChooseInitialOption(int opt);
 	public void viewHotelList(ArrayList<City> cityHotelList);
-	public void custProfileDetails(Customer cust);
+	public Customer custProfileDetails(Customer cust);
 	public Hotel getHotel(String hotel, ArrayList<Hotel> hotelList);
 	public ArrayList<Hotel> getHotelListFromCity(ArrayList<City> cityList, String cityName);
 	public void bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount);
