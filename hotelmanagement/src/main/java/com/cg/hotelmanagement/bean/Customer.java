@@ -12,6 +12,7 @@ public class Customer {
 	private String customerPhoneNo;
 	private String customerEmailId;
 	private String customerPassword;
+	private int BillAmount;
 
 	public Customer(long customerId, String customerUsername, String customerFirstName, String customerLastName,
 			String gender, String customerAddress, String customerIdNo, String customerPhoneNo, String customerEmailId,
@@ -196,6 +197,16 @@ public class Customer {
 
 	public void setCustomerPassword(String customerPassword) {
 		this.customerPassword = customerPassword;
+	}
+	public int getBillAmount()
+	{
+		return BillAmount;
+		
+	}
+
+	public void setBillAmount(int cost) {
+		this.BillAmount=cost;
+		
 	}
 
 }

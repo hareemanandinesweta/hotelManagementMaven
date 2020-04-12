@@ -117,7 +117,7 @@ public class ServiceImpt implements ServiceInteface {
 
 	@Override
 	public void bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount) {
-
+		int cost = 0;
 		if (numBookRoomCount > roomAvail) {
 			System.out.println("Only this number of rooms available:" + roomAvail);
 		}
@@ -129,8 +129,8 @@ public class ServiceImpt implements ServiceInteface {
 					roomList.get(i).setIsbooked(true);
 					roomList.get(i).setCustomer(cust);
 					roomList.get(i).setCustomer(cust);
-					// cost += roomList.get(i).getRoomcost();
-					// customer1.setBillAmount(cost);
+					 cost += roomList.get(i).getRoomcost();
+					 cust.setBillAmount(cost);
 					numBookRoomCount--;
 					System.out.println("Room allocated successfully and room id is:" + roomList.get(i).getRoomid());
 
@@ -215,14 +215,14 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void refund() {
-		// TODO Auto-generated method stub
-
+	public void refund(Customer cust) {
+		System.out.println("Refunded amount from Customer with custid:"+cust.getCustomerId()+" amount is:"+(cust.getBillAmount()-500));
+		cust.setBillAmount(0);
 	}
 
 	@Override
-	public void payBill() {
-
+	public void payBill(Customer cust) {
+		System.out.println("Customer with :"+cust.getCustomerId()+" Please pay: "+cust.getBillAmount());
 	}
 
 	@Override
