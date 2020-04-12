@@ -76,7 +76,6 @@ public class MainInterface {
 				System.out.println("Enter your password");
 				String pass = scr.next();
 				for (Customer cs : CustomerDAOImpl.custList) {
-					
 					loggedin = serv.logIn(cs, id, CustomerDAOImpl.CustMap, pass); 
 					break;
 					
