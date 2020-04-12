@@ -89,7 +89,6 @@ public class MainInterface {
 
 					}
 				}
-
 				if (loggedin) {
 					while (true) {
 						System.out.println(
@@ -153,6 +152,9 @@ public class MainInterface {
 										int numBook = scr.nextInt();
 										serv.bookRoom(hotelSelected.getRoomList(), cst, noOfRoomsAvail, numBook);
 										HotelDAOImpl.bookedHotels.add(hotelSelected);
+										
+										System.out.println("Payment details...");
+										serv.payBill(cst);
 									}
 
 									else {
@@ -201,6 +203,9 @@ public class MainInterface {
 									System.out.println("------------------------------------------------------------------------");
 									System.out.println(cancelledRoom);
 									System.out.println("------------------------------------------------------------------------\n");
+									
+									System.out.println("Cancellation details are:");
+									serv.refund(cst);
 									break;
 
 								case 6:

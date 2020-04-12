@@ -25,10 +25,10 @@ public interface ServiceInteface  {
 	public void formFill();
 	public void viewCustomers();
 	public String cancelRoom(ArrayList<Room> roomList, Customer cst);
-	public void refund();
-	public void payBill();
 	public void checkOut(String custID, ArrayList<Room> roomList);
 	public void menu();
+	void payBill(Customer cust);
+	void refund(Customer cust);
 	
 
 }
