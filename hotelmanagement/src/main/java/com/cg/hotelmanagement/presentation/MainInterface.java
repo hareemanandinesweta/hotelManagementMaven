@@ -21,22 +21,7 @@ import com.cg.hotelmanagement.service.ServiceImpt;
 
 public class MainInterface {
 
-//	enum ROOM_COST {
-//
-//		AC(4000), NONAC(2000);
-//
-//		public final int val;
-//
-//		ROOM_COST(int val) {
-//			this.val = val;
-//		}
-//	}
-//
-//	enum ROOM_TYPE {
-//		AC, NON_AC;
-//	}
-	// Customer Cust = new Customer();
-	
+
 	static Logger logger = LogManager.getLogger(MainInterface.class);
 
 	public static void main(String args[]) throws HotelManagementException
@@ -61,12 +46,7 @@ public class MainInterface {
 
 		ServiceImpt serv = new ServiceImpt();
 		Scanner scr = new Scanner(System.in);
-//		ArrayList<Hotel> hotelList = new ArrayList<>(); // List of Hotels
-//		ArrayList<Hotel> hotelList2 = new ArrayList<>();
-//
-//		ArrayList<Room> roomList = new ArrayList<>(); // List of rooms\
-//		ArrayList<Room> roomList2 = new ArrayList<>(); // List of rooms
-//		ArrayList<Room> roomList3 = new ArrayList<>(); // List of rooms
+
 
 		ArrayList<City> cityList = new ArrayList<>();
 		ArrayList<ArrayList<Room>> wholeRoomList = new ArrayList<>();
@@ -238,23 +218,6 @@ public class MainInterface {
 									 
 									ArrayList<Hotel> bookedList = serv.myBooking(cityList);
 									System.out.println(bookedList);
-//----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-								/*
-								 * System.out.println(count + " rooms are avalaible! Hurry up!");
-								 * System.out.println( "Do you want to book a room from " +
-								 * hotelSelected.getHotelName() + ": Y/N"); String bookopt = scr.next();
-								 * 
-								 * if (bookopt.equalsIgnoreCase("Y")) { System.out.println("Rooms available: ");
-								 * for (Room rl : rlist) { if (!rl.isIsbooked()) {
-								 * System.out.println(rl.getRoomid()); } }
-								 * System.out.println("Which room do you want to book?"); int roomNo =
-								 * scr.nextInt(); for (Room r : rlist) { if (roomNo == r.getRoomid()) {
-								 * 
-								 * System.out.println("Congratulations! Room Booked: " + r.getRoomid());
-								 * r.setIsbooked(true); count = 0; } } System.out.println(rlist); }
-								 */
-
-//--------------------------------------------------------------------------------------------------------------------------------------------------
 
 								}
 
