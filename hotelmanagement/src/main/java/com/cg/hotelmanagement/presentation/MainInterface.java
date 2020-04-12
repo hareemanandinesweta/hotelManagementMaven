@@ -72,7 +72,6 @@ public class MainInterface {
 
 				System.out.println("Enter you ID");
 				id = scr.next();
-
 				System.out.println("Enter your password");
 				String pass = scr.next();
 				for (Customer cs : CustomerDAOImpl.custList) {
