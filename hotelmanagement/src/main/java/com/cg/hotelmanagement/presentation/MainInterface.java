@@ -78,10 +78,6 @@ public class MainInterface {
 
 				customerDao.hardCodedValues();
 
-//				System.out.println(CustomerList);
-
-				// System.out.println(CustMap.entrySet());
-
 				System.out.println("Enter you ID");
 				id = scr.next();
 
