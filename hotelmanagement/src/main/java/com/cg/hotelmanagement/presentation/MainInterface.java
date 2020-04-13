@@ -100,7 +100,10 @@ public class MainInterface {
 									String cityName = scr.next();
 									// valide krna isko pattern="[A,Za-z]{1,20}";
 
-									serv.getHotelListFromCity(CityDAOImpl.cityList, cityName);
+									ArrayList<Hotel> citySelected= serv.getHotelListFromCity(CityDAOImpl.cityList, cityName);
+									for(Hotel h: citySelected) {
+										System.out.println(h.getHotelName() +", " +h.getHotelId() +", Contact no: "+h.getHotelPhoneNo());
+									}
 									break;
 
 								case 3:
