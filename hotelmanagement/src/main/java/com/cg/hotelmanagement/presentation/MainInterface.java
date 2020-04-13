@@ -70,7 +70,6 @@ public class MainInterface {
 					if (cs.getCustomerUsername().equalsIgnoreCase(id)) {
 						loggedin = serv.logIn(cs, id, CustomerDAOImpl.CustMap, pass);
 						break;
-
 					}
 				}
 				if (loggedin) {
