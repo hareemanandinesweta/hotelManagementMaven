@@ -1,6 +1,9 @@
 package com.cg.hotelmanagement.service;
 
+import com.cg.hotelmanagement.exceptions.ContactNumberException;
+import com.cg.hotelmanagement.exceptions.EmailIdException;
 import com.cg.hotelmanagement.exceptions.HotelManagementException;
+import com.cg.hotelmanagement.exceptions.NameException;
 
 public class CustomerValidations {
 
@@ -23,26 +26,18 @@ public class CustomerValidations {
 				return false;
 		}
 		
-		public static boolean customerFirstNameValidation(String customerFirstName) throws HotelManagementException
+		public static void customerFirstNameValidation(String customerFirstName) throws NameException
 		{
 			String pattern = "[A-Za-z]{4,20}";
-			if(customerFirstName.matches(pattern))
-			{
-				return true;
-			}
-			else
-				return false;
+			if(!customerFirstName.matches(pattern))
+			throw new NameException("Please Enter a Valid FirstName!!");
 		}
 		
-		public static boolean customerLastNameValidation(String customerLastName) throws HotelManagementException
+		public static void customerLastNameValidation(String customerFirstName) throws NameException
 		{
 			String pattern = "[A-Za-z]{4,20}";
-			if(customerLastName.matches(pattern))
-			{
-				return true;
-			}
-			else
-				return false;
+			if(!customerFirstName.matches(pattern))
+			throw new NameException("Please Enter a Valid SurName!!");
 		}
 		
 		public static void genderValidation(String gender) throws HotelManagementException {
@@ -66,37 +61,25 @@ public class CustomerValidations {
 
 			}
 			
-			public static boolean customerPhoneNumberValidation(String customerPhoneNumber) throws HotelManagementException
+			public static void customerPhoneNumberValidation(String customerPhoneNumber) throws ContactNumberException
 			{
 				String pattern = "[6-9]{1}[0-9]{9}";
-				if(customerPhoneNumber.matches(pattern))
-				{
-					return true;
-				}
-				else
-					return false;
+				if(!customerPhoneNumber.matches(pattern))
+				throw new ContactNumberException("Please Enter a valid phone number!!");
 			}
 			
-			public static boolean customerEmailIdValidation(String customerEmailId) throws HotelManagementException
+			public static void customerEmailIdValidation(String customerEmailId) throws EmailIdException
 			{
 				String pattern = "[A-Za-z]{4,20}[@]{1}[gmail]{5}[.com]{4}";
-				if(customerEmailId.matches(pattern))
-				{
-					return true;
-				}
-				else
-					return false;
+				if(!customerEmailId.matches(pattern))
+				throw new EmailIdException("Please Enter a valid Email Id");
 			}
 			
-			public static boolean customerpasswordValidation(String customerPassword) throws HotelManagementException
+			public static void customerpasswordValidation(String customerPassword) throws HotelManagementException
 			{
 				String pattern = "[A-Za-z]{3,6}[0-9]{2}[@#$%&*]{1}";
 				if(customerPassword.matches(pattern))
-				{
-					return true;
-				}
-				else
-					return false;
+				throw new HotelManagementException("Please Enter a valid password");
 			}
 			
 		}

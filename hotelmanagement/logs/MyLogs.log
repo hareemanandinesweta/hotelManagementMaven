@@ -352,3 +352,129 @@
 [FATAL] 2020-04-12 19:30:11.355 [main] MainInterface - This is a fatal msg
 [WARN ] 2020-04-12 19:30:11.355 [main] MainInterface - This is a warn msg
 [ERROR] 2020-04-12 19:30:11.355 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-12 22:14:30.869 [main] MainInterface - This is an info msg
+[INFO ] 2020-04-12 22:14:30.908 [main] MainInterface - This is an info msg
+[INFO ] 2020-04-12 22:14:30.882 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-12 22:14:31.343 [main] MainInterface - This is a fatal msg
+[FATAL] 2020-04-12 22:14:31.343 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-12 22:14:31.343 [main] MainInterface - This is a warn msg
+[WARN ] 2020-04-12 22:14:31.343 [main] MainInterface - This is a warn msg
+[FATAL] 2020-04-12 22:14:31.343 [main] MainInterface - This is a fatal msg
+[ERROR] 2020-04-12 22:14:31.343 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-12 22:14:31.343 [main] MainInterface - This is a error msg
+[WARN ] 2020-04-12 22:14:31.344 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-12 22:14:31.344 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-12 23:05:49.001 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-12 23:05:49.003 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-12 23:05:49.003 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-12 23:05:49.003 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-12 23:09:32.640 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-12 23:09:32.642 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-12 23:09:32.642 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-12 23:09:32.642 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:03:13.336 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:03:13.338 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:03:13.338 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:03:13.338 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:04:03.269 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:04:03.271 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:04:03.271 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:04:03.271 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:04:59.950 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:04:59.952 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:04:59.952 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:04:59.952 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:08:25.670 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:08:25.672 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:08:25.672 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:08:25.672 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 00:09:09.615 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-13 00:10:37.753 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-13 00:10:51.715 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[INFO ] 2020-04-13 00:41:20.012 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:41:20.014 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:41:20.014 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:41:20.014 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:49:35.241 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:49:35.244 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:49:35.244 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:49:35.245 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:49:35.959 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:49:35.962 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:49:35.962 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:49:35.963 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 00:49:49.069 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-13 00:52:26.725 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[INFO ] 2020-04-13 00:56:57.777 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:56:57.780 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:56:57.780 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:56:57.780 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:56:57.825 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:56:57.827 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:56:57.827 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:56:57.827 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 00:57:01.369 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 00:57:01.371 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 00:57:01.371 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 00:57:01.371 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 00:57:13.881 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-13 00:57:29.545 [main] HotelManagementException - Please Enter a valid Email ID!!
+[ERROR] 2020-04-13 00:58:27.244 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-13 00:58:44.301 [main] HotelManagementException - Please Enter a valid Contact Number!!
+[INFO ] 2020-04-13 09:28:09.614 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 09:28:09.641 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 09:28:09.642 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 09:28:09.642 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 09:28:23.011 [main] HotelManagementException - No such city found!
+[INFO ] 2020-04-13 10:08:41.704 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 10:08:41.706 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 10:08:41.706 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 10:08:41.706 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 10:33:54.557 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 10:33:54.560 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 10:33:54.560 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 10:33:54.560 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 10:35:14.028 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 10:35:14.030 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 10:35:14.030 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 10:35:14.030 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 10:37:38.885 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 10:37:38.887 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 10:37:38.887 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 10:37:38.887 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 10:40:57.510 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 10:40:57.512 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 10:40:57.512 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 10:40:57.512 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 10:41:06.014 [main] HotelManagementException - No such city found!
+[INFO ] 2020-04-13 11:14:49.503 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:14:49.505 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:14:49.505 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:14:49.505 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 11:23:08.664 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:23:08.666 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:23:08.666 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:23:08.666 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 11:23:27.585 [main] HotelManagementException - No such city found!
+[INFO ] 2020-04-13 11:26:52.312 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:26:52.314 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:26:52.314 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:26:52.314 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 11:27:18.795 [main] HotelManagementException - No such city found!
+[INFO ] 2020-04-13 11:28:00.289 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:28:00.291 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:28:00.291 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:28:00.291 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 11:28:16.076 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:28:16.078 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:28:16.078 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:28:16.078 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 11:28:20.520 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:28:20.522 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:28:20.522 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:28:20.522 [main] MainInterface - This is a error msg
+[INFO ] 2020-04-13 11:28:26.670 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-13 11:28:26.672 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-13 11:28:26.672 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-13 11:28:26.672 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-13 11:28:37.990 [main] HotelManagementException - No such city found!

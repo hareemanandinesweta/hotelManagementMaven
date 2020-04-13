@@ -176,11 +176,7 @@ public class ServiceImpt implements ServiceInteface {
 		return bookingList;
 	}
 
-	@Override
-	public void formFill() {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 	@Override
 	public void viewCustomers() {
@@ -228,7 +224,7 @@ public class ServiceImpt implements ServiceInteface {
 	@Override
 	public void checkOut(String custID, ArrayList<Room> roomList) {
 		{
-			System.out.println("room checkout:" + custID);
+		//	System.out.println("room checkout:" + custID);
 			roomList.stream().filter(r -> r.isIsbooked())
 					.filter(c -> c.getCustomer().getCustomerUsername().equalsIgnoreCase(custID)).forEach(r -> {
 						r.setIsbooked(false);
@@ -240,17 +236,6 @@ public class ServiceImpt implements ServiceInteface {
 
 	}
 
-	@Override
-	public void menu() {
-
-		System.out.println("Services you can avail are as below");
-		System.out.println("Press 1: For Customer form fill");
-		System.out.println("Press 2: For View Customers");
-		System.out.println("Press 3: Check Availability");
-		System.out.println("Press 4: To Book Room and Pay Bill");
-		System.out.println("Press 5: To Cancel Room and Refund");
-		System.out.println("Press 6: For CheckOut");
-	}
 
 	@Override
 	public ArrayList<Hotel> getHotelListFromCity(ArrayList<City> cityList, String cityName) {
@@ -266,6 +251,18 @@ public class ServiceImpt implements ServiceInteface {
 
 		}
 		return hotlist;
+	}
+
+	@Override
+	public void formFill() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void menu() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
