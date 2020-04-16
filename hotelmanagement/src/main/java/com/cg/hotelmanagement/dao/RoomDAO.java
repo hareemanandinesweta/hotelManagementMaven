@@ -1,5 +1,5 @@
 package com.cg.hotelmanagement.dao;
 
-public class RoomDAO {
+public interface RoomDAO {
 
 }

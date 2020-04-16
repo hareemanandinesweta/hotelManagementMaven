@@ -9,8 +9,16 @@ public class City {
     private String cityId;
     private String cityName;
     private ArrayList<Hotel> hotelList;
+    
+    
 
-    public City(String cityId, String cityName, ArrayList<Hotel> hotelList) {
+    public City(String cityId, String cityName) {
+		super();
+		this.cityId = cityId;
+		this.cityName = cityName;
+	}
+
+	public City(String cityId, String cityName, ArrayList<Hotel> hotelList) {
         this.cityId = cityId;
         this.cityName = cityName;
         this.hotelList = hotelList;

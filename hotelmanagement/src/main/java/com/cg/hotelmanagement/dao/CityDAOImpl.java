@@ -17,5 +17,10 @@ public class CityDAOImpl {
 		cityList.add(new City("16", "Chandigarh", HotelDAOImpl.hotelList2));
 		cityList.add(new City("17", "Mumbai", HotelDAOImpl.hotelList4));
 	}
+	
+	public ArrayList<City> getCityList(){
+		return this.cityList;
+	}
+
 
 }

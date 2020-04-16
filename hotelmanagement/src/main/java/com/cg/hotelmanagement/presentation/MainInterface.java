@@ -16,6 +16,7 @@ import com.cg.hotelmanagement.dao.CustomerDAOImpl;
 import com.cg.hotelmanagement.dao.HotelDAOImpl;
 import com.cg.hotelmanagement.dao.RoomDAOImpl;
 import com.cg.hotelmanagement.exceptions.*;
+import com.cg.hotelmanagement.service.AdminServiceImpl;
 import com.cg.hotelmanagement.service.CustomerValidations;
 import com.cg.hotelmanagement.service.HotelValidation;
 import com.cg.hotelmanagement.service.ServiceImpt;
@@ -23,6 +24,10 @@ import com.cg.hotelmanagement.service.ServiceImpt;
 public class MainInterface {
 
 	static Logger logger = LogManager.getLogger(MainInterface.class);
+	
+	static Scanner scr = new Scanner(System.in);
+	static AdminServiceImpl admin = new AdminServiceImpl();
+	static CityDAOImpl cityDAO = new CityDAOImpl();
 
 	public static void main(String args[]) throws HotelManagementException
 
@@ -44,7 +49,7 @@ public class MainInterface {
 		CustomerDAOImpl customerDao = new CustomerDAOImpl();
 		CityDAOImpl cityDAO = new CityDAOImpl();
 		ServiceImpt serv = new ServiceImpt();
-		Scanner scr = new Scanner(System.in);
+		
 
 		cityDAO.hardcodedvalues();
 		roomDAO.hardcodedValues();
@@ -260,134 +265,30 @@ public class MainInterface {
 					boolean adminLoggedIn = serv.logInAdmin(A1, id, AdminHash, pass2);
 
 					if (adminLoggedIn) {
+						boolean quit = false;
+						int choice = 0;
+						printInstructions();
+						while (!quit) {
+							System.out.println("Enter your choice: ");
+							choice = scr.nextInt();
+							scr.nextLine();
 
-						System.out.println("Admin switch cases");
-						int opt2 = scr.nextInt();
-						System.out.println("1. Add a new Customer");
-						switch (opt2) {
-						case 1:
-							Customer newCust = new Customer();
-							while (true) {
-								System.out.println("Enter Customer ID: ");
-								long idnew = scr.nextLong();
-								try {
-									CustomerValidations.customerIdValidation(Long.toString(idnew));
-									newCust.setCustomerId(idnew);
-									break;
-								} catch (HotelManagementException e) {
-									System.out.println(e);
-								}
+							switch (choice) {
+							case 1:
+								printInstructions();
+								break;
+							case 2:
+								addCity();
+								break;
+							case 3:
+								removeCity();
+								break;
+							case 11:
+								quit = true;
+								break;
+							default:
+								System.out.println("Choose correct option please.");
 							}
-							while (true) {
-
-								System.out.println("Enter Customer Username: ");
-								String userName = scr.next();
-								try {
-									CustomerValidations.customerUserNameValidation(userName);
-									newCust.setCustomerUsername(userName);
-									break;
-								} catch (HotelManagementException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer first name: ");
-								String fname = scr.next();
-								try {
-									newCust.setCustomerFirstName(fname);
-									CustomerValidations.customerFirstNameValidation(fname);
-									break;
-								} catch (NameException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer last name: ");
-								String lname = scr.next();
-								try {
-									CustomerValidations.customerLastNameValidation(lname);
-									newCust.setCustomerLastName(lname);
-									break;
-								} catch (NameException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer gender: ");
-								String gen = scr.next();
-								try {
-									CustomerValidations.genderValidation(gen);
-									newCust.setGender(gen);
-									break;
-								} catch (HotelManagementException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer address: ");
-								String addr = scr.next();
-								try {
-									CustomerValidations.customerAddressValidation(addr);
-									newCust.setCustomerAddress(addr);
-									break;
-								} catch (HotelManagementException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer Adhaar No: ");
-								String adhaarNo = scr.next();
-								try {
-									CustomerValidations.customerIdValidation(adhaarNo);
-									newCust.setCustomerIdNo(adhaarNo);
-									break;
-								} catch (HotelManagementException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer phone No.: ");
-								String phno = scr.next();
-								try {
-									CustomerValidations.customerPhoneNumberValidation(phno);
-									newCust.setCustomerPhoneNo(phno);
-									break;
-								} catch (ContactNumberException e) {
-									System.out.println(e);
-								}
-
-							}
-							while (true) {
-								System.out.println("Enter Customer email id: ");
-								String email = scr.next();
-								try {
-									CustomerValidations.customerEmailIdValidation(email);
-									newCust.setCustomerEmailId(email);
-									break;
-								} catch (EmailIdException e) {
-									System.out.println(e);
-								}
-							}
-							while (true) {
-								System.out.println("Enter Customer password: ");
-								String pass = scr.next();
-								try {
-									CustomerValidations.customerpasswordValidation(pass);
-									newCust.setCustomerPassword(pass);
-									break;
-								} catch (HotelManagementException e) {
-									System.out.println(e);
-								}
-							}
-							Customer newCustomer = new Customer(newCust.getCustomerId(), newCust.getCustomerUsername(),
-									newCust.getCustomerFirstName(), newCust.getCustomerLastName(), newCust.getGender(),
-									newCust.getCustomerAddress(), newCust.getCustomerIdNo(),
-									newCust.getCustomerPhoneNo(), newCust.getCustomerEmailId(),
-									newCust.getCustomerPassword());
-
-							customerDao.signIn(newCustomer);
-							System.out.println("Customer Added Successfully");
-
 						}
 					} else {
 						System.out.println("Wrong Username or password");
@@ -399,5 +300,75 @@ public class MainInterface {
 		} else {
 			System.out.println("Invalid Option");
 		}
+	}
+	public static void printInstructions() {
+		System.out.println("\nPress ");
+		System.out.println("\t 1 - To list options.");
+		System.out.println("\t 2 - To add new location.");
+		System.out.println("\t 3 - To remove added location.");
+
+		System.out.println("\t 4 - To add new hotels.");
+		System.out.println("\t 5 - To remove added hotels .");
+
+		System.out.println("\t 6 - To add new rooms.");
+		System.out.println("\t 7 - To remove added rooms.");
+
+		System.out.println("\t 8 - To display list of loactions.");
+		System.out.println("\t 9 - To display list of hotels in location.");
+		System.out.println("\t 10 - To display list of rooms in hotels.");
+
+		System.out.println("\t 11 - To quit application.");
+	}
+	
+	public static void addCity() {
+		System.out.println("Enter the city name :");
+		String cityName = scr.next();
+
+		System.out.println("Assign an ID to city please :");
+		String cityId = scr.next();
+		
+		System.out.println("City " + cityName + " assigned ID number :" + cityId + " added.");
+
+		System.out.println("Do you want to add any new hotel?" + "\n Choose 1. for Yes and 2. for NO.");
+		int option = scr.nextInt();
+		if (option == 1) {
+			System.out.println("Please enter Hotel details.");
+			System.out.println("Enter Hotel Name : ");
+			String hotelName = scr.next();
+			System.out.println("Assign a Hotel Id :");
+			String hotelId = scr.next();
+			System.out.println("Enter the Hotel Type : ");
+			String hotelType = scr.next();
+			System.out.println("Enter the Hotel Address : ");
+			String hotelAdddress = scr.next();
+			System.out.println("Enter the Hotel Contact Number : ");
+			String hotelContact = scr.next();
+			System.out.println("Enter the Room Details of hotel :");
+			ArrayList<Room> roomlist = RoomDAOImpl.roomList;
+			
+			Hotel hotel = new Hotel(hotelId,hotelName,hotelType,hotelAdddress,hotelContact,roomlist);
+			HotelDAOImpl.hotelList.add(hotel);
+			City city = new City(cityId, cityName,HotelDAOImpl.hotelList);
+			CityDAOImpl.cityList.add(city);
+		}else if(option == 2) {
+			City city = new City(cityId, cityName);
+			CityDAOImpl.cityList.add(city);
+		}
+	}
+	
+	public static void removeCity() {
+		System.out.println("Enter the City ID  to remove City : ");
+		String cityId = scr.next();
+		if(admin.removeCity(cityId)) {
+		       System.out.println("City with City ID "+cityId+ " removed.");
+		       
+		       for(City city : cityDAO.getCityList()) {
+		    	    System.out.println("Available List of Cities : ");
+					System.out.println(city.getCityId()+" "+city.getCityName());
+				}
+	       }
+	       else
+	    	   System.out.println("City does not exist.");
+		
 	}
 }

@@ -1,5 +1,5 @@
 package com.cg.hotelmanagement.dao;
 
-public class CityDAO {
+public interface CityDAO {
 
 }

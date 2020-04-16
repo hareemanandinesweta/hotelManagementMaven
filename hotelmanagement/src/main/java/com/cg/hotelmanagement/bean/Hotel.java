@@ -77,8 +77,21 @@ public class Hotel {
 	public Hotel(){
 
     }
+	
+	
 
-    public Hotel(String hotelId, String hotelName, String hotelType, String hotelAddress, String hotelPhoneNo, String hotelRating, ArrayList<Room> roomList) {
+    public Hotel(String hotelId, String hotelName, String hotelType, String hotelAddress, String hotelPhoneNo,
+			ArrayList<Room> roomList) {
+		super();
+		this.hotelId = hotelId;
+		this.hotelName = hotelName;
+		this.hotelType = hotelType;
+		this.hotelAddress = hotelAddress;
+		this.hotelPhoneNo = hotelPhoneNo;
+		this.roomList = roomList;
+	}
+
+	public Hotel(String hotelId, String hotelName, String hotelType, String hotelAddress, String hotelPhoneNo, String hotelRating, ArrayList<Room> roomList) {
         this.hotelId = hotelId;
         this.hotelName = hotelName;
         this.hotelType = hotelType;

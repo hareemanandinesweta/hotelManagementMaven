@@ -2,16 +2,16 @@ package com.cg.hotelmanagement.bean;
 
 public class Admin {
     private String adminID;
-  //  private String adminPassword;
+    private String adminPassword;
     private Hotel hotelDetails;
     private Customer customerDetails;
     private Booking booking;
     private Room room;
     private City city;
 
-    public Admin(String adminID, Hotel hotelDetails, Customer customerDetails, Booking booking, Room room, City city) {
+    public Admin(String adminID,String adminPassword,Hotel hotelDetails, Customer customerDetails, Booking booking, Room room, City city) {
         this.adminID = adminID;
-        
+        this.adminPassword = adminPassword;
         this.hotelDetails = hotelDetails;
         this.customerDetails = customerDetails;
         this.booking = booking;
