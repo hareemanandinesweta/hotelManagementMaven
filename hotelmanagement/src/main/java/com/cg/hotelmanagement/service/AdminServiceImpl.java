@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 import com.cg.hotelmanagement.bean.Admin;
 import com.cg.hotelmanagement.bean.City;
+import com.cg.hotelmanagement.bean.Hotel;
 import com.cg.hotelmanagement.dao.CityDAOImpl;
 
 
@@ -22,18 +23,5 @@ public class AdminServiceImpl implements AdminServiceInterface {
 		return adminEntered;
 	}
 
-	@Override
-	public boolean removeCity(String cityId) {
-		for(int i = 0 ; i <CityDAOImpl.cityList.size();i++) {
-			City city = CityDAOImpl.cityList.get(i);
-			if((city.getCityId()).equals(cityId)) {
-				CityDAOImpl.cityList.remove(i);
-				return true;
-			}			
-		}
-		return false;
-	}
-
-	
 
 }

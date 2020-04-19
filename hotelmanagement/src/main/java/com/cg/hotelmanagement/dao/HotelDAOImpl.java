@@ -1,7 +1,9 @@
 package com.cg.hotelmanagement.dao;
 
 import java.util.ArrayList;
+import java.util.List;
 
+import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.bean.Hotel;
 
 public class HotelDAOImpl implements HotelDAO{
@@ -17,9 +19,55 @@ public class HotelDAOImpl implements HotelDAO{
 	//public static ArrayList<Hotel> hotelList2 = new ArrayList<>();
 	
 	
-	public void addHotel() {
+	public void addHotel(Hotel hotel,String cityId) {
+		for(int i = 0 ; i <CityDAOImpl.cityList.size();i++) {
+		City city = CityDAOImpl.cityList.get(i);
 		
+		if((city.getCityId()).equals(cityId)) {
+		city.getHotelList().add(hotel);
+		}
+		}
 	}
+	
+	public boolean removeHotel(String HotelId,String cityId) {
+		for(int i = 0 ; i <CityDAOImpl.cityList.size();i++) {
+			City city = CityDAOImpl.cityList.get(i);
+			if((city.getCityId()).equals(cityId)) {
+			for(int j = 0 ; i <HotelDAOImpl.hotelList.size();j++) {
+			Hotel hotel = HotelDAOImpl.hotelList.get(j);		
+				if((hotel.getHotelId()).equals(HotelId)){
+					HotelDAOImpl.hotelList.remove(j);
+					return true;
+				}
+				
+			}			
+		}
+	}
+		return false;
+	}
+	
+	
+	public List<Hotel> displayHotel(String cityId){
+		City city = null;
+		for(int i = 0 ; i <CityDAOImpl.cityList.size();i++) {
+			city = CityDAOImpl.cityList.get(i);
+		if((city.getCityId()).equals(cityId)) {
+			return city.getHotelList();
+			}
+		}
+		return city.getHotelList();
+	}
+	
+	public boolean findHotel(String hotelId) {
+		for(int i = 0 ; i <HotelDAOImpl.hotelList.size();i++) {
+			Hotel hotel = HotelDAOImpl.hotelList.get(i);
+			if((hotel.getHotelId()).equals(hotelId)){
+				return true;
+			}			
+		}
+		return false;
+	}
+	
 	
 	public void hardCodedValues() {
 		RoomDAOImpl roomDAO = new RoomDAOImpl();
