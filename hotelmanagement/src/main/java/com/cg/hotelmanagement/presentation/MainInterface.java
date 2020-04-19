@@ -6,7 +6,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.*;
 
 import com.cg.hotelmanagement.bean.Admin;
-import com.cg.hotelmanagement.bean.Booking;
 import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.bean.Customer;
 import com.cg.hotelmanagement.bean.Hotel;

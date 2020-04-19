@@ -114,8 +114,6 @@ public class Room {
 		this.customer = customer;
 	}
 	
-	
-
 
 	public Room() {
 		// TODO Auto-generated constructor stub
