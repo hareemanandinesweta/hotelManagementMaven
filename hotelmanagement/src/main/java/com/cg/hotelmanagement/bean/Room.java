@@ -113,6 +113,12 @@ public class Room {
 		this.roomcost = roomcost;
 		this.customer = customer;
 	}
+	
+	
+
+	public Room() {
+		super();
+	}
 
 	@Override
 	public int hashCode() {
