@@ -21,6 +21,27 @@ public class CityDAOImpl {
 	public ArrayList<City> getCityList(){
 		return this.cityList;
 	}
+	
+	public boolean removeCity(String cityId) {
+		for(int i = 0 ; i <CityDAOImpl.cityList.size();i++) {
+			City city = CityDAOImpl.cityList.get(i);
+			if((city.getCityId()).equals(cityId)) {
+				CityDAOImpl.cityList.remove(i);
+				return true;
+			}			
+		}
+		return false;
+	}
+	
+	public boolean findCity(String cityId) {
+		for(int i = 0 ; i <CityDAOImpl.cityList.size();i++) {
+			City city = CityDAOImpl.cityList.get(i);
+			if((city.getCityId()).equals(cityId)){
+				return true;
+			}			
+		}
+		return false;
+	}
 
 
 }

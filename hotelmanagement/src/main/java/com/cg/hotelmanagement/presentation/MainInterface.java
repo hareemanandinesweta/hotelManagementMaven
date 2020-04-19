@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.*;
 
 import com.cg.hotelmanagement.bean.Admin;
+import com.cg.hotelmanagement.bean.Booking;
 import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.bean.Customer;
 import com.cg.hotelmanagement.bean.Hotel;
@@ -20,6 +21,7 @@ import com.cg.hotelmanagement.service.AdminServiceImpl;
 import com.cg.hotelmanagement.service.CustomerValidations;
 import com.cg.hotelmanagement.service.HotelValidation;
 import com.cg.hotelmanagement.service.ServiceImpt;
+import com.cg.hotelmanagement.service.adminChoiceValidation;
 
 public class MainInterface {
 
@@ -28,6 +30,8 @@ public class MainInterface {
 	static Scanner scr = new Scanner(System.in);
 	static AdminServiceImpl admin = new AdminServiceImpl();
 	static CityDAOImpl cityDAO = new CityDAOImpl();
+	static HotelDAOImpl hotelDAO = new HotelDAOImpl();
+	static RoomDAOImpl roomDAO = new RoomDAOImpl();
 
 	public static void main(String args[]) throws HotelManagementException
 
@@ -45,7 +49,7 @@ public class MainInterface {
 		// boolean userEntered = false;
 		String id;
 		RoomDAOImpl roomDAO = new RoomDAOImpl();
-		HotelDAOImpl hotelDAO = new HotelDAOImpl();
+		
 		CustomerDAOImpl customerDao = new CustomerDAOImpl();
 		CityDAOImpl cityDAO = new CityDAOImpl();
 		ServiceImpt serv = new ServiceImpt();
@@ -263,15 +267,32 @@ public class MainInterface {
 					String pass2 = scr.next();
 
 					boolean adminLoggedIn = serv.logInAdmin(A1, id, AdminHash, pass2);
+					
+					
 
 					if (adminLoggedIn) {
 						boolean quit = false;
 						int choice = 0;
 						printInstructions();
+						
 						while (!quit) {
-							System.out.println("Enter your choice: ");
-							choice = scr.nextInt();
-							scr.nextLine();
+							
+							boolean error = false;
+							while(!error) {
+								try
+								{
+									Scanner scan= new Scanner(System.in);
+									System.out.print("Enter your choice : ");
+									choice=scan.nextInt();
+									error=true;
+								}
+								catch(InputMismatchException e)
+								{
+								
+									System.out.println("Error,Please input a integer and greater than 0.");
+									error = false;
+								}
+							}
 
 							switch (choice) {
 							case 1:
@@ -282,6 +303,27 @@ public class MainInterface {
 								break;
 							case 3:
 								removeCity();
+								break;
+							case 4:
+								addHotels();
+								break;
+							case 5:
+								removeHotels();
+								break;
+							case 6:
+								addRoom();
+								break;
+							case 7:
+								removeRoom();
+								break;
+							case 8:
+								showCity();
+								break;
+							case 9:
+								displayHotel();
+								break;
+							case 10:
+								showRoom();
 								break;
 							case 11:
 								quit = true;
@@ -301,6 +343,8 @@ public class MainInterface {
 			System.out.println("Invalid Option");
 		}
 	}
+	
+	
 	public static void printInstructions() {
 		System.out.println("\nPress ");
 		System.out.println("\t 1 - To list options.");
@@ -359,16 +403,154 @@ public class MainInterface {
 	public static void removeCity() {
 		System.out.println("Enter the City ID  to remove City : ");
 		String cityId = scr.next();
-		if(admin.removeCity(cityId)) {
+		if(cityDAO.removeCity(cityId)) {
 		       System.out.println("City with City ID "+cityId+ " removed.");
-		       
-		       for(City city : cityDAO.getCityList()) {
-		    	    System.out.println("Available List of Cities : ");
-					System.out.println(city.getCityId()+" "+city.getCityName());
-				}
-	       }
-	       else
+		}else
 	    	   System.out.println("City does not exist.");
 		
 	}
+	
+	public static void showCity() {
+		for(City city : cityDAO.getCityList()) {
+    	    System.out.println("Available List of Cities : ");
+			System.out.println(city.getCityId()+" "+city.getCityName());
+		}
+   }
+	
+	public static void addHotels() {
+		System.out.println("Enter the City ID :");
+	    String cityID = scr.next();
+		if(cityDAO.findCity(cityID))
+		{
+		System.out.println("Please enter Hotel details.");
+		System.out.println("Enter Hotel Name : ");
+		String hotelName = scr.next();
+		System.out.println("Assign a Hotel Id :");
+		String hotelId = scr.next();
+		System.out.println("Enter the Hotel Type : ");
+		String hotelType = scr.next();
+		System.out.println("Enter the Hotel Address : ");
+		String hotelAdddress = scr.next();
+		System.out.println("Enter the Hotel Contact Number : ");
+		String hotelContact = scr.next();
+		System.out.println("Enter the Room Details of hotel :");
+		ArrayList<Room> roomlist = RoomDAOImpl.roomList;
+		System.out.println("Room Added");
+		Hotel hotel = new Hotel(hotelId,hotelName,hotelType,hotelAdddress,hotelContact,roomlist);
+		hotelDAO.addHotel(hotel,cityID);
+		System.out.println("Hotel Added.");
+		
+		}else {
+			System.out.println("Please enter correct City ID.");
+		}
+		
+	}
+	
+	public static void removeHotels() {
+		System.out.println("Enter the City ID  to remove Hotel : ");
+		String cityId = scr.next();
+		if(cityDAO.findCity(cityId)) {
+			System.out.println("Enter the Hotel ID  to remove Hotel : ");
+			String hotelId = scr.next();
+			try {
+				if(hotelDAO.removeHotel(hotelId,cityId)) {
+				       System.out.println("Hotel with Hotel ID "+hotelId+ " removed.");
+				} 	
+			}catch(IndexOutOfBoundsException e){
+				System.out.println("Hotel ID does not exist.");
+			}      
+			 
+		}else
+			System.out.println("City ID does not exist.");
+		}
+	
+	public static void displayHotel() {
+		System.out.println("Enter the City ID  to display Hotel : ");
+		String cityId = scr.next();
+		if(cityDAO.findCity(cityId)) {
+			for(Hotel hotel : hotelDAO.displayHotel(cityId)) {
+	    	    System.out.println("Available List of Hotels : ");
+				System.out.println(hotel.getHotelId()+" "+hotel.getHotelName()+" "+
+	    	    hotel.getHotelAddress()+" "+hotel.getHotelPhoneNo()+" "+hotel.getHotelType()+" "+
+						hotel.getHotelRating()+" "+hotel.getRoomList());
+			}
+	}else
+		System.out.println("Enter valid city ID.");
+	
 }
+	
+	
+	public static void addRoom() {
+		System.out.println("Enter the City ID :");
+	    String cityID = scr.next();
+		if(cityDAO.findCity(cityID))
+		{System.out.println("Enter the Hotel ID :");
+	    String hotelID = scr.next();
+			
+			if(hotelDAO.findHotel(hotelID)) {
+				System.out.println("Enter the room details. ");
+				System.out.println("Enter the room id : ");
+				long roomId = scr.nextLong();
+				System.out.println("Enter the room type : ");
+				String roomType = scr.next();
+				System.out.println("Enter the booking status : ");
+				boolean bookingStatus = scr.hasNext();
+				System.out.println("Enter the room cost : ");
+				double cost = scr.nextDouble();
+				
+				Room room = new Room(roomId,roomType,bookingStatus,cost);
+				roomDAO.addRoom(cityID,hotelID,room);
+				System.out.println("Room Added.");
+			}else
+				System.out.println("Enter valid hotel ID.");
+		}else
+			System.out.println("Enter valid city ID.");
+		}
+	
+	public static void removeRoom() {
+		System.out.println("Enter the City ID  to remove Room : ");
+		String cityId = scr.next();
+		if(cityDAO.findCity(cityId)) {
+			System.out.println("Enter the Hotel ID  to remove room : ");
+			String hotelId = scr.next();
+			if(hotelDAO.findHotel(hotelId)) {
+				System.out.println("Enter the Room ID  to remove room : ");
+				long roomId = scr.nextLong();
+				if(roomDAO.findRoom(roomId)) {
+					try {
+						if(roomDAO.removeRoom(hotelId,cityId,roomId)) {
+						       System.out.println("Room with Room ID "+hotelId+ " removed.");
+						} 	
+					}catch(IndexOutOfBoundsException e){
+						System.out.println("Room ID does not exist.");
+					}      
+				}
+			
+			}else
+				System.out.println("Hotel ID does not exist.");
+			 
+		}else
+			System.out.println("City ID does not exist.");
+	}
+	
+	public static void showRoom() {
+		System.out.println("Enter the City ID  to show room : ");
+		String cityId = scr.next();
+		if(cityDAO.findCity(cityId)) {
+			System.out.println("Enter the Hotel ID  to show room : ");
+			String hotelId = scr.next();
+			if(hotelDAO.findHotel(hotelId)) {
+				for(Room room : roomDAO.displayRoom(cityId,hotelId)) {
+		    	    System.out.println("Available List of Rooms : ");
+					System.out.println(room.getRoomid()+" "+room.getRoomtype()+
+							" "+room.getRoomcost()+" "+room.getCheckin()+" "+
+							room.getCheckout()+" "+room.getCustomer()+" "+room.getBookingDetails());
+				}
+			}else
+				System.out.println("Enter valid hotel ID.");
+			
+	}else
+		System.out.println("Enter valid city ID.");
+	}
+		
+	}

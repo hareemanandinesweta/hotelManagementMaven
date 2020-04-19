@@ -12,6 +12,16 @@ public class Room {
 	private double roomcost;
 	private Customer customer;
 	private List<Booking> bookingDetails;
+	
+	
+
+	public Room(long roomid, String roomtype, boolean isbooked, double roomcost) {
+		super();
+		this.roomid = roomid;
+		this.roomtype = roomtype;
+		this.isbooked = isbooked;
+		this.roomcost = roomcost;
+	}
 
 	public List<Booking> getBookingDetails() {
 		return bookingDetails;
