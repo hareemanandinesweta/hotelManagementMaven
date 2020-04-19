@@ -1,0 +1,11 @@
+[INFO ] 2020-04-19 18:40:45.369 [main] MainInterface - This is an info msg
+[FATAL] 2020-04-19 18:40:45.371 [main] MainInterface - This is a fatal msg
+[WARN ] 2020-04-19 18:40:45.372 [main] MainInterface - This is a warn msg
+[ERROR] 2020-04-19 18:40:45.372 [main] MainInterface - This is a error msg
+[ERROR] 2020-04-19 20:18:44.882 [main] HotelManagementException - Please Enter a valid FirstName!!
+[ERROR] 2020-04-19 20:18:49.579 [main] HotelManagementException - Please Enter a valid FirstName!!
+[ERROR] 2020-04-19 20:18:57.091 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-19 21:09:15.620 [main] HotelManagementException - Pls Enter a valid hotel name!!
+[ERROR] 2020-04-19 21:27:41.634 [main] HotelManagementException - Please Enter a valid Contact Number!!
+[INFO ] 2020-04-19 21:28:04.094 [main] CustomerDAOImpl - Customer added
+[INFO ] 2020-04-19 21:33:37.945 [main] CustomerDAOImpl - Customer added

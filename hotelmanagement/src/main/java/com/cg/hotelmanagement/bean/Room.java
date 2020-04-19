@@ -104,6 +104,10 @@ public class Room {
 		this.customer = customer;
 	}
 
+	public Room() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;

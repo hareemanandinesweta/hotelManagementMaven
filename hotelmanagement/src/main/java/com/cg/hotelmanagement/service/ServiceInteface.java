@@ -20,15 +20,15 @@ public interface ServiceInteface  {
 	public Customer custProfileDetails(Customer cust);
 	public Hotel getHotel(String hotel, ArrayList<Hotel> hotelList);
 	public ArrayList<Hotel> getHotelListFromCity(ArrayList<City> cityList, String cityName);
-	public void bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount);
-	public void checkAvailablity(ArrayList<Room> roomList, int noOfRoomsAvai );
+	public String bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount);
+	public String checkAvailablity(ArrayList<Room> roomList, int noOfRoomsAvai );
 	public void formFill();
 	public void viewCustomers();
 	public String cancelRoom(ArrayList<Room> roomList, Customer cst);
 	public void checkOut(String custID, ArrayList<Room> roomList);
 	public void menu();
-	void payBill(Customer cust);
-	void refund(Customer cust);
+	public String payBill(Customer cust);
+	public String refund(Customer cust);
 	
 
 }

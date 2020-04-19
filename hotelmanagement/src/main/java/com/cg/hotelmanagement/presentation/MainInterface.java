@@ -1,6 +1,5 @@
 package com.cg.hotelmanagement.presentation;
 
-import java.sql.*;
 import java.util.*;
 
 import org.apache.logging.log4j.LogManager;
@@ -32,17 +31,9 @@ public class MainInterface {
 	public static void main(String args[]) throws HotelManagementException
 
 	{
-		System.out.println("----Started----\n");
-		logger.info("This is an info msg");
-		logger.fatal("This is a fatal msg");
-		logger.warn("This is a warn msg");
-		logger.error("This is a error msg");
-
-		System.out.println("\n----Completed----");
 
 		boolean loggedin = false;
-		// int count = 0;
-		// boolean userEntered = false;
+		
 		String id;
 		RoomDAOImpl roomDAO = new RoomDAOImpl();
 		HotelDAOImpl hotelDAO = new HotelDAOImpl();
@@ -57,7 +48,7 @@ public class MainInterface {
 		customerDao.hardCodedValues();
 		// System.out.println(wholeRoomList);
 
-		System.out.println(CityDAOImpl.cityList);
+		//System.out.println(CityDAOImpl.cityList);
 		System.out.println("Log in as: \n1.Customer \n2.Admin");
 		int option = scr.nextInt();
 
@@ -80,6 +71,8 @@ public class MainInterface {
 				}
 				if (loggedin) {
 					while (true) {
+						System.out.println("										     𝕎𝕖𝕝𝕔𝕠𝕞𝕖 𝕥𝕠 𝕔𝕙𝕖𝕒𝕡𝕤𝕥𝕒𝕪𝕤.𝕔𝕠𝕞						");
+						System.out.println("												      🅼🅴🅽🆄										");
 						System.out.println(
 								"Select an option:\n 1.Show your profile\n 2.Search hotel on the basis of City: \n 3.Book a room.\n 4.CheckAvailabilty\n 5.Cancel Booked room?\n 6.Check Out?");
 						int opt = scr.nextInt();
@@ -96,7 +89,133 @@ public class MainInterface {
 											+ "\nPhone Number: " + cs.getCustomerPhoneNo() + "\nAddress: "
 											+ cs.getCustomerAddress() + "\nUserName: " + cs.getCustomerUsername());
 									break;
+									
+									
 								case 2:
+									Customer newCust = new Customer();
+									while (true) {
+										System.out.println("Enter Customer ID: ");
+										String idnew = scr.next();
+										try {
+											CustomerValidations.customerIdValidation(idnew);
+											newCust.setCustomerId(Long.parseLong(idnew));
+											break;
+										}   catch (HotelManagementException e) {
+												System.out.println(e);
+										}
+									}
+									while (true) {
+
+										System.out.println("Enter Customer Username: ");
+										String userName = scr.next();
+										try {
+											CustomerValidations.customerUserNameValidation(userName);
+											newCust.setCustomerUsername(userName);
+											break;
+										} catch (HotelManagementException e) {
+											System.out.println(e);
+										}
+									}
+									while (true) {
+										System.out.println("Enter Customer first name: ");
+										String fname = scr.next();
+										try {
+											newCust.setCustomerFirstName(fname);
+											CustomerValidations.customerFirstNameValidation(fname);
+											break;
+										} catch (NameException e) {
+											System.out.println(e);
+										}
+									}
+									while (true) {
+										System.out.println("Enter Customer last name: ");
+										String lname = scr.next();
+										try {
+											CustomerValidations.customerLastNameValidation(lname);
+											newCust.setCustomerLastName(lname);
+											break;
+										} catch (NameException e) {
+											System.out.println(e);
+										}
+									}
+									while (true) {
+										System.out.println("Enter Customer gender: ");
+										String gen = scr.next();
+										try {
+											CustomerValidations.genderValidation(gen);
+											newCust.setGender(gen);
+											break;
+										} catch (HotelManagementException e) {
+											System.out.println(e);
+										}
+									}
+									//while (true) {
+										System.out.println("Enter Customer address: ");
+										String addr = scr.next();
+//										try {
+//											CustomerValidations.customerAddressValidation(addr);
+//											newCust.setCustomerAddress(addr);
+//											break;
+//										} catch (HotelManagementException e) {
+//											System.out.println(e);
+//										}
+									
+									while (true) {
+										System.out.println("Enter Customer Adhaar No: ");
+										String adhaarNo = scr.next();
+										try {
+											CustomerValidations.customerIdValidation(adhaarNo);
+											newCust.setCustomerIdNo(adhaarNo);
+											break;
+										} catch (HotelManagementException e) {
+											System.out.println(e);
+										}
+									}
+									while (true) {
+										System.out.println("Enter Customer phone No.: ");
+										String phno = scr.next();
+										try {
+											CustomerValidations.customerPhoneNumberValidation(phno);
+											newCust.setCustomerPhoneNo(phno);
+											break;
+										} catch (ContactNumberException e) {
+											System.out.println(e);
+										}
+
+									}
+									while (true) {
+										System.out.println("Enter Customer email id: ");
+										String email = scr.next();
+										try {
+											CustomerValidations.customerEmailIdValidation(email);
+											newCust.setCustomerEmailId(email);
+											break;
+										} catch (EmailIdException e) {
+											System.out.println(e);
+										}
+									}
+									while (true) {
+										System.out.println("Enter Customer password: ");
+										String pass2 = scr.next();
+										try {
+											CustomerValidations.customerpasswordValidation(pass);
+											newCust.setCustomerPassword(pass2);
+											break;
+										} catch (HotelManagementException e) {
+											System.out.println(e);
+										}
+									}
+									Customer newCustomer = new Customer(newCust.getCustomerId(), newCust.getCustomerUsername(),
+											newCust.getCustomerFirstName(), newCust.getCustomerLastName(), newCust.getGender(),
+											newCust.getCustomerAddress(), newCust.getCustomerIdNo(),
+											newCust.getCustomerPhoneNo(), newCust.getCustomerEmailId(),
+											newCust.getCustomerPassword());
+
+									customerDao.signIn(newCustomer);
+									System.out.println("Customer Added Successfully");
+									break;
+									
+								case 3:
 									System.out.println("--------------CITIES---------------");
 									for (City c : CityDAOImpl.cityList) {
 										System.out.println(" " + c.getCityName());
@@ -111,15 +230,15 @@ public class MainInterface {
 									}
 									break;
 
-								case 3:
+								case 4:
 									System.out.println("--------------HOTEL LIST-----------------");
 									serv.viewHotelList(CityDAOImpl.cityList);
-
+									
 									System.out.println("Enter city name: ");
 									String SearchcityName = scr.next();
 									// method banao city not found
 									System.out.println(
-											"------------These are the hotels in " + SearchcityName + "------------");
+											"------------These are the hotels in " + SearchcityName.toUpperCase() + "------------");
 									ArrayList<Hotel> hotlist = serv.getHotelListFromCity(CityDAOImpl.cityList,
 											SearchcityName);
 									for (Hotel h : hotlist) {
@@ -150,11 +269,11 @@ public class MainInterface {
 										System.out.println(
 												"------------------------------------------------------------------------\n");
 										int numBook = scr.nextInt();// fghjghjghjg validate
-										serv.bookRoom(hotelSelected.getRoomList(), cst, noOfRoomsAvail, numBook);
+										System.out.println(serv.bookRoom(hotelSelected.getRoomList(), cst, noOfRoomsAvail, numBook));
 										HotelDAOImpl.bookedHotels.add(hotelSelected);
 
 										System.out.println("Payment details...");
-										serv.payBill(cst);
+										System.out.println(serv.payBill(cst));
 									}
 
 									else {
@@ -164,7 +283,7 @@ public class MainInterface {
 
 									break;
 
-								case 4: // little problem with validations..
+								case 5: // little problem with validations..
 									ArrayList<Hotel> hotlist2 = new ArrayList<>();
 									System.out.println("--------------Check Availability-----------------");
 									serv.viewHotelList(CityDAOImpl.cityList);
@@ -206,7 +325,7 @@ public class MainInterface {
 									
 									break;
 									//}
-								case 5:
+								case 6:
 									System.out.println(
 											"------------------Cancellation Rooms for which hotel?------------------ ");
 									System.out.println(
@@ -220,16 +339,17 @@ public class MainInterface {
 									System.out.println(
 											"------------------------------------------------------------------------\n");
 
-									System.out.println("Cancellation details are:");
-									serv.refund(cst);
+									System.out.println("--------Cancellation details are:--------");
+									System.out.println("|-------------------------------------------|");
+									System.out.println(serv.refund(cst));
 									break;
 
-								case 6:
+								case 7:
 									System.out.println("Check out for: " + cst.getCustomerUsername());
 									serv.checkOut(cst.getCustomerUsername(), RoomDAOImpl.roomList);
 									break;
 
-								case 7:
+								case 8:
 									System.out.println("--------------My bookings--------------");
 									System.out.println("You have bookings for these hotels: ");
 

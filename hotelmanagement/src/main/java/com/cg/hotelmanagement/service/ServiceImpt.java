@@ -116,10 +116,11 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount) {
+	public String bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount) {
 		int cost = 0;
+		ArrayList<Long> lis = new ArrayList<Long>();
 		if (numBookRoomCount > roomAvail) {
-			System.out.println("Only this number of rooms available:" + roomAvail);
+			return "Only this number of rooms available:" +roomAvail;
 		}
 
 		if (roomAvail > 0) {
@@ -128,33 +129,37 @@ public class ServiceImpt implements ServiceInteface {
 
 					roomList.get(i).setIsbooked(true);
 					roomList.get(i).setCustomer(cust);
-					roomList.get(i).setCustomer(cust);
+				//	roomList.get(i).setCustomer(cust);
 					 cost += roomList.get(i).getRoomcost();
 					 cust.setBillAmount(cost);
 					numBookRoomCount--;
-					System.out.println("Room allocated successfully and room id is:" + roomList.get(i).getRoomid());
-
+					long r = roomList.get(i).getRoomid();
+					
+					lis.add(r);
 				}
-
+				
 			}
+			return "Room allocated successfully and room id is:" + lis;
 		}
 		if (roomAvail == 0) {
-			System.out.println("rooms not available");
+			return "rooms not available";
 		}
+		 return "Invalid Options";
 	}
-
 	@Override
-	public void checkAvailablity(ArrayList<Room> roomList, int noOfRoomsAvai) {
+	public String checkAvailablity(ArrayList<Room> roomList, int noOfRoomsAvai) {
 
 		if (noOfRoomsAvai > 0) {
 			for (int i = 0; i < roomList.size(); i++) {
-				if (roomList.get(i).isIsbooked() == false) {
-					System.out.println("room is available with room no: " + roomList.get(i).getRoomid());
-				}
+				if (roomList.get(i).isIsbooked() == false) 
+					return "room is available with room no: " + roomList.get(i).getRoomid();
+				
 			}
-		} else {
-			System.out.println("No Rooms available to book.");
-		}
+		} 
+	 	
+		return "No Rooms available to book.";
+		
+		
 	}
 
 	public ArrayList<Hotel> myBooking(ArrayList<City> cityList) {
@@ -211,14 +216,16 @@ public class ServiceImpt implements ServiceInteface {
 	}
 
 	@Override
-	public void refund(Customer cust) {
-		System.out.println("Refunded amount from Customer with custid:"+cust.getCustomerId()+" amount is:"+(cust.getBillAmount()-500));
+	public String refund(Customer cust) {
+		int bill = cust.getBillAmount()-500;
 		cust.setBillAmount(0);
+		return "Refunded amount from Customer with custid:"+cust.getCustomerId()+" amount is:"+bill;
+		
 	}
 
 	@Override
-	public void payBill(Customer cust) {
-		System.out.println("Customer with :"+cust.getCustomerId()+" Please pay: "+cust.getBillAmount());
+	public String payBill(Customer cust) {
+		return "Customer with :"+cust.getCustomerId()+" Please pay: "+cust.getBillAmount();
 	}
 
 	@Override
