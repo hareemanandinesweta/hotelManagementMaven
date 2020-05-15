@@ -5,6 +5,8 @@ import java.util.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.*;
 
+import com.cg.hotelmanagement.Validation.CustomerValidations;
+import com.cg.hotelmanagement.Validation.HotelValidation;
 import com.cg.hotelmanagement.bean.Admin;
 import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.bean.Customer;
@@ -16,10 +18,7 @@ import com.cg.hotelmanagement.dao.HotelDAOImpl;
 import com.cg.hotelmanagement.dao.RoomDAOImpl;
 import com.cg.hotelmanagement.exceptions.*;
 import com.cg.hotelmanagement.service.AdminServiceImpl;
-import com.cg.hotelmanagement.service.CustomerValidations;
-import com.cg.hotelmanagement.service.HotelValidation;
 import com.cg.hotelmanagement.service.ServiceImpt;
-import com.cg.hotelmanagement.service.adminChoiceValidation;
 
 public class MainInterface {
 
@@ -31,7 +30,7 @@ public class MainInterface {
 	static HotelDAOImpl hotelDAO = new HotelDAOImpl();
 	static RoomDAOImpl roomDAO = new RoomDAOImpl();
 
-	public static void main(String args[]) throws HotelManagementException
+	public static void main(String args[]) throws Exception
 
 	{
 
@@ -77,7 +76,16 @@ public class MainInterface {
 						System.out.println("										     𝕎𝕖𝕝𝕔𝕠𝕞𝕖 𝕥𝕠 𝕔𝕙𝕖𝕒𝕡𝕤𝕥𝕒𝕪𝕤.𝕔𝕠𝕞						");
 						System.out.println("												      🅼🅴🅽🆄										");
 						System.out.println(
-								"Select an option:\n 1.Show your profile\n 2.Search hotel on the basis of City: \n 3.Book a room.\n 4.CheckAvailabilty\n 5.Cancel Booked room?\n 6.Check Out?");
+								"Select an option:\n 1.Show your profile\n"
+								+ " 2.Create a new account.\n "
+								+ "3.Explore hotel on the basis of City.\n "
+								+ "4.Search and book a hotel.\n"
+								+ " 5.CheckAvailabilty\n "
+								+ "6.Cancel Booked room?\n "
+								+ "7.Check out\n "
+								+ "8.Show your bookings\n "
+								+ "9.Delete Your Account?\n"
+								+ "10.Edit you profile\n ");
 						int opt = scr.nextInt();
 
 						for (Customer cst : CustomerDAOImpl.custList) {
@@ -358,6 +366,36 @@ public class MainInterface {
 
 									ArrayList<Hotel> bookedList = serv.myBooking(CityDAOImpl.cityList);
 									System.out.println(bookedList);
+									break;
+								case 9:
+									System.out.println("Delete your account?");
+									System.out.println("Please enter you id");
+									boolean deleted =false;
+									long cid = scr.nextLong();
+									deleted= customerDao.deleteCustomer(cid);
+									if(deleted) {
+										System.out.println("Customer Deleted Successfully");
+									}
+									break;
+
+								case 10:
+									System.out.println("Edit your account?");
+									System.out.println("Please enter you id");
+									boolean updated =false;
+									long Ucid = scr.nextLong();
+									System.out.println("Enter New username");
+									String uname = scr.next();
+									System.out.println("Enter New phoneNumber");
+									String phnumber = scr.next();
+									System.out.println("Enter New EmailId");
+									String emid = scr.next();
+									
+									updated= customerDao.updateCustomer(Ucid, emid, phnumber, uname);
+									if(updated) {
+										System.out.println("Customer edited Successfully");
+										
+									}
+									break;
 
 								}
 							}
@@ -530,9 +568,9 @@ public class MainInterface {
 	}
 	
 	public static void showCity() {
-		for(City city : cityDAO.getCityList()) {
-    	    System.out.println("Available List of Cities : ");
-			System.out.println(city.getCityId()+" "+city.getCityName());
+		  System.out.println("Available List of Cities : ");
+		  for(City city : cityDAO.getCityList()) {
+			  System.out.println(city.getCityId()+" "+city.getCityName());
 		}
    }
 	
@@ -587,8 +625,9 @@ public class MainInterface {
 		System.out.println("Enter the City ID  to display Hotel : ");
 		String cityId = scr.next();
 		if(cityDAO.findCity(cityId)) {
+			System.out.println("Available List of Hotels : ");
 			for(Hotel hotel : hotelDAO.displayHotel(cityId)) {
-	    	    System.out.println("Available List of Hotels : ");
+	    	    
 				System.out.println(hotel.getHotelId()+" "+hotel.getHotelName()+" "+
 	    	    hotel.getHotelAddress()+" "+hotel.getHotelPhoneNo()+" "+hotel.getHotelType()+" "+
 						hotel.getHotelRating()+" "+hotel.getRoomList());

@@ -22,7 +22,7 @@ public interface ServiceInteface  {
 	public ArrayList<Hotel> getHotelListFromCity(ArrayList<City> cityList, String cityName);
 	public String bookRoom(ArrayList<Room> roomList, Customer cust, int roomAvail, int numBookRoomCount);
 	public String checkAvailablity(ArrayList<Room> roomList, int noOfRoomsAvai );
-	public void formFill();
+	
 	public void viewCustomers();
 	public String cancelRoom(ArrayList<Room> roomList, Customer cst);
 	public void checkOut(String custID, ArrayList<Room> roomList);

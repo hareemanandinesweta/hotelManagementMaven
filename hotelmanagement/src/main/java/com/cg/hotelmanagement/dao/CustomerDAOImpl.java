@@ -3,6 +3,8 @@ package com.cg.hotelmanagement.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import java.util.*;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -20,6 +22,73 @@ public class CustomerDAOImpl implements CustomerDAO{
 		
 	}
 	
+	@Override
+	public ArrayList<Customer> viewCustomer() throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			return custList;
+	     }
+	  catch(Exception e){
+		  throw e;
+	  }
+	}
+	
+	@Override
+	public boolean deleteCustomer(long customerId) {
+		boolean del = false;
+		Iterator<Customer> itrCust = custList.iterator();
+		while(itrCust.hasNext()) {
+			Customer cst = itrCust.next();
+			if(cst.getCustomerId()==customerId) {
+				itrCust.remove();
+				del = true;
+			}
+		}
+		return del;
+		// TODO Auto-generated method stub
+//		try {
+//			boolean available=false;
+//			for(int i = 0; i<custList.size();i++) {
+//				if(custList.get(i).getCustomerId()==customerId) {
+//					custList.remove(custList.get(i));
+//					available=true;
+//					break;
+//				}
+//			}
+//			return available;
+//		}
+//		catch(Exception e){
+//			throw e;
+//		}
+	}
+	
+	@Override
+	public boolean updateCustomer(long customerId, String updateCustomerUserName, String updateCustomerPhoneNo,
+			String updateCustomerEmailId) throws Exception {
+		// TODO Auto-generated method stub
+		try {
+			boolean available=false;
+			for(Customer c1:custList) {
+				if(c1.getCustomerId()==customerId) {
+					c1.setCustomerUsername(updateCustomerUserName);
+					c1.setCustomerPhoneNo(updateCustomerPhoneNo);
+					c1.setCustomerEmailId(updateCustomerEmailId);
+					available=true;
+					break;
+				}
+			}
+			return available;
+		}
+		catch(Exception e){
+			throw e;
+		}
+	}
+  
+	@Override
+	public Customer findById(long customerid) throws Exception {
+		Customer result = custList.stream().filter(n -> n.getCustomerId() == customerid).findAny().orElse(null);
+		return result;
+	}
 	
 	public void hardCodedValues() {
 		Customer C1 = new Customer(2001, "po1ar", "Dinesh","Sharma","Male", "12/2 BlueStreet", "", "9897210076", "dcloudrider@gmail.com", "muzikfreak");

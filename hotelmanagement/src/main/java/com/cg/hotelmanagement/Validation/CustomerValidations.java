@@ -1,4 +1,4 @@
-package com.cg.hotelmanagement.service;
+package com.cg.hotelmanagement.Validation;
 
 import com.cg.hotelmanagement.exceptions.ContactNumberException;
 import com.cg.hotelmanagement.exceptions.EmailIdException;

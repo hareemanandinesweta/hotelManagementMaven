@@ -260,12 +260,8 @@ public class ServiceImpt implements ServiceInteface {
 		return hotlist;
 	}
 
-	@Override
-	public void formFill() {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
+	
 	@Override
 	public void menu() {
 		// TODO Auto-generated method stub

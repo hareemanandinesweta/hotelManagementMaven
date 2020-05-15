@@ -1,4 +1,4 @@
-package com.cg.hotelmanagement.service;
+package com.cg.hotelmanagement.Validation;
 
 import com.cg.hotelmanagement.bean.City;
 import com.cg.hotelmanagement.dao.CityDAOImpl;
