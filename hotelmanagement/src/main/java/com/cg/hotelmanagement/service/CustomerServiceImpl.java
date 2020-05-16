@@ -11,7 +11,7 @@ import com.cg.hotelmanagement.bean.Room;
 import com.cg.hotelmanagement.dao.HotelDAOImpl;
 import com.cg.hotelmanagement.exceptions.HotelManagementException;
 
-public class CustomerServiceImpl {
+public class CustomerServiceImpl implements CustomerServiceInterface {
 	public Hotel selectedHotel;
 	public boolean userEntered;
 	public boolean adminEntered;
